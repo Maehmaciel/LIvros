@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Votaçao</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            display:flex;
+            height: 100vh;
+            justify-content: center;
+            flex-direction: row
+
+        }
+
+        form, #formAutores{
+            display:flex;
+            flex-direction: column
+
+        }
+        #button{
+            padding:5px;
+            border: 1px solid;
+            border-radius: 5px;
+
+        }
+        </style>
+    </head>
+    <body onload="my()">
+        <form > 
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo">
+            <label for="ano">Ano</label>
+            <input type="number" id="ano">
+            <label for="qtdPaginas">Quantidade de páginas:</label>
+            <input type="number" id="qtdPaginas">
+            <div id="formAutores">
+                <hr>
+                    <label for="nome0">Nome do autor:</label>
+                    <input type="text" id="nome0">
+                    <label for="dataNascimento0">Data de Nascimento:</label>
+                    <input type="date" id="dataNascimento0">
+                    <label for="formacao0">Formaçao:</label>
+                    <input type="text" id="formacao0">
+                    <hr>
+            </div>
+            
+
+            <div id="button" onclick=addAutor()>Adicionar Autor</div>
+            
+            <div id="button" onclick=addLivro()>Adicionar Livro</div>
+        </form>
+       
+        <div id="mostra" >
+           
+            </div>
+            <form > 
+                    <label for="pesquisaAutor">Autor</label>
+                    <input type="text" id="pesquisaAutor">
+                    
+                    
+                    <div id="button" onclick=pesquisa()>Pesquisar Autor</div>
+                </form>
+
+        <script src="candidato.js"></script>
+    </body>
+</html>
