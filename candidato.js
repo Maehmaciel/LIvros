@@ -1,25 +1,24 @@
 livros=[
 
-    
+
 ]
 
 function pesquisa(){
  aut=document.getElementById('pesquisaAutor').value
-l =JSON.parse(localStorage.livro)
-encontrado=false
-for(a in l)
-for (b in l[a].autores){
-  if(l[a].autores[b].nome === aut)
-  encontrado=l[a]
-}
-
-if(encontrado)
-{
-  console.log(encontrado)
-}
-else{
-  console.log('opa, esse autor não tem livros cadastrados')
-}
+ encontrado=false
+ for(a in l)
+ for (b in l[a].autores){
+   if(l[a].autores[b].nome === aut)
+   encontrado=l[a]
+ }
+ 
+ if(encontrado)
+ {
+   console.log(encontrado)
+ }
+ else{
+   console.log('opa, esse autor não tem livros cadastrados')
+ }
 }
 
 function my(){
@@ -28,11 +27,11 @@ render=document.getElementById('mostra')
 render.innerHTML=""
 l=JSON.parse(localStorage.livro)
 l.map(a=>{
-render.innerHTML+="Titulo: "+a.Titulo+"Ano: "+a.Ano+"Paginas: "+a.qtdPaginas+""
-render.innerHTML+="Autores"
+render.innerHTML+="<hr>Titulo: "+a.Titulo+"<br/>Ano: "+a.Ano+"<br/>Paginas: "+a.qtdPaginas+"<br/>"
+render.innerHTML+="<br/>Autores<br/>"
   a.autores.map(b=>{
-    render.innerHTML+="Nome:"+b.nome+"Data Nascimento: "+b.dataNascimento+"Formaçao:"+b.formacao
-   
+    render.innerHTML+="<br>Nome:"+b.nome+"<br/>Data Nascimento: "+b.dataNascimento+"<br/>Formaçao:"+b.formacao+"<br/>"
+
 
   })
 })
@@ -42,7 +41,7 @@ autores=1
 function  addAutor(){
      autores++
   form=document.getElementById('formAutores')
- 
+
 
   nomeLabel=document.createElement('label')
   nomeLabel.for=`nome${autores}`
@@ -75,7 +74,7 @@ form.appendChild(hr)
 }
 
 function  addLivro(){
-     
+
   autores=1
     titulo=document.getElementById('titulo').value
     ano=document.getElementById('ano').value
@@ -83,15 +82,15 @@ function  addLivro(){
 
   inputs=document.getElementsByTagName('input')
   let livro={}
- 
-   
+
+
       livro.Titulo=inputs[0].value
-     
+
       livro.Ano=inputs[1].value
-     
+
       livro.qtdPaginas=inputs[2].value
       livro.autores=[
-    
+
       ]
 for(let i=3;i<inputs.length;i+=3)
 {
@@ -102,7 +101,7 @@ for(let i=3;i<inputs.length;i+=3)
  autor.formacao=inputs[i+2].value
  livro.autores.push(autor)}
 }
-    
+
 
 livros=JSON.parse(localStorage.livro)
 livros.push(livro)
